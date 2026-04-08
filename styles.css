@@ -1,40 +1,165 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lords of Form</title>
-  <link rel="stylesheet" href="styles.css?v=1" />
-</head>
+/* BASE */
+body{
+  margin:0;
+  background:#000;
+  color:#d1b15a;
+  font-family: Georgia, 'Times New Roman', serif;
+  overflow-x:hidden;
+}
 
-<body>
-  <main class="page">
-    <section class="container" aria-label="Lords of Form landing panel">
+/* FADE IN */
+.fadeIn{
+  animation: fadeIn 1.2s ease forwards;
+  opacity:0;
+}
 
-      <div class="logoBox">
-        <img class="logoImg" src="logo.jpg" alt="Lords of Form" />
-      </div>
+@keyframes fadeIn{
+  to{ opacity:1; }
+}
 
-      <div class="comingSoon">Full website coming soon</div>
+/* GRAIN */
+body::after{
+  content:"";
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  pointer-events:none;
+  opacity:.06;
+  background-image:url("https://grainy-gradients.vercel.app/noise.svg");
+}
 
-      <nav class="buttonRow" aria-label="Links">
-        <a class="bigButton" href="https://lordsofform.bandcamp.com/" target="_blank" rel="noopener noreferrer">Bandcamp</a>
-        <a class="bigButton" href="https://www.facebook.com/lordsofform/" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a class="bigButton" href="https://www.youtube.com/channel/UCzbmExrlILsdEvipOS1WtDA" target="_blank" rel="noopener noreferrer">YouTube</a>
-        <a class="bigButton" href="https://www.instagram.com/lords_of_form/" target="_blank" rel="noopener noreferrer">Instagram</a>
+/* LAYOUT */
+.page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
 
-        <a class="bigButton contact" href="mailto:lordsofform@gmail.com">Contact</a>
-      </nav>
+.container{
+  width:min(960px, 100%);
+  border:1px solid rgba(209,177,90,.25);
+  padding:28px 22px;
+  text-align:center;
+}
 
-      <footer>
-        © <span id="year"></span> Lords of Form
-      </footer>
+/* LOGO */
+.logoImg{
+  max-width:620px;
+  width:100%;
+  margin-bottom:20px;
+}
 
-    </section>
-  </main>
+/* TEXT */
+.comingSoon{
+  letter-spacing:.25em;
+  font-size:12px;
+  margin:18px 0 34px;
+}
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+.comingSoon::before,
+.comingSoon::after{
+  content:"";
+  display:inline-block;
+  width:40px;
+  height:1px;
+  background: rgba(209,177,90,.4);
+  margin:0 10px;
+}
+
+/* PLAYER */
+.player{
+  position:relative;
+  margin:50px auto;
+  max-width:720px;
+  padding:20px 0;
+  border-top:1px solid rgba(209,177,90,.25);
+  border-bottom:1px solid rgba(209,177,90,.25);
+}
+
+.player iframe{
+  width:100%;
+  height:120px;
+  border:none;
+  position:relative;
+  z-index:2;
+}
+
+.playerGlow{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  width:140%;
+  height:200%;
+  background: radial-gradient(circle, rgba(209,177,90,0.08) 0%, transparent 70%);
+  z-index:1;
+}
+
+.player:hover{
+  box-shadow:0 0 30px rgba(209,177,90,.12);
+}
+
+/* BUTTONS */
+.buttonRow{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:14px;
+  margin-top:40px;
+}
+
+.bigButton{
+  padding:14px;
+  border:1px solid rgba(209,177,90,.35);
+  color:#d1b15a;
+  text-decoration:none;
+  letter-spacing:.18em;
+  font-size:12px;
+  transition:all .25s ease;
+}
+
+.primary{
+  background: rgba(209,177,90,.08);
+  box-shadow:0 0 12px rgba(209,177,90,.15);
+}
+
+.bigButton:hover{
+  background: rgba(209,177,90,.12);
+  box-shadow:0 0 16px rgba(209,177,90,.25);
+}
+
+/* CENTERED CONTACT */
+.contactWrap{
+  display:flex;
+  justify-content:center;
+  margin-top:16px;
+}
+
+.contact{
+  width:50%;
+  max-width:300px;
+  text-align:center;
+}
+
+/* FOOTER */
+footer{
+  margin-top:20px;
+  font-size:11px;
+  opacity:.6;
+}
+
+/* MOBILE */
+@media (max-width:640px){
+  .buttonRow{
+    grid-template-columns:repeat(2, 1fr);
+  }
+
+  .contact{
+    width:100%;
+  }
+
+  .player iframe{
+    height:140px;
+  }
+}
