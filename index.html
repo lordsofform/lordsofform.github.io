@@ -3,51 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lords of Form</title>
+
+  <title>Lords of Form – Fallow &amp; Fain | Out 24 April</title>
+
+  <meta name="description" content="Lords of Form – Fallow &amp; Fain. New spacerock album out 24 April. Listen and buy." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Lords of Form – Fallow &amp; Fain" />
+  <meta property="og:description" content="Fallow &amp; Fain – new album out 24 April." />
+  <meta property="og:image" content="logo.jpg" />
+  <meta property="og:type" content="music.album" />
+
+  <link rel="stylesheet" href="styles.css?v=6" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicAlbum",
+    "name": "Fallow & Fain",
+    "byArtist": {
+      "@type": "MusicGroup",
+      "name": "Lords of Form"
+    },
+    "datePublished": "2026-04-24",
+    "genre": ["Spacerock", "Psychedelic Rock"],
+    "url": "https://lordsofform.bandcamp.com/album/fallow-fain"
+  }
+  </script>
+
 </head>
 
-<body style="margin:0; background:#000; color:#d1b15a; font-family: Georgia, 'Times New Roman', serif;">
-  <main style="min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;">
-    <section style="width:min(980px, 100%); border:1px solid rgba(209,177,90,.25); padding:28px;">
-      
-      <div style="text-align:center; margin-bottom:22px;">
-        <!-- Put your logo file in the SAME folder as index.html and name it: logo.jpg -->
-        <img src="logo.jpg" alt="Lords of Form" style="max-width:min(720px, 100%); height:auto; display:block; margin:0 auto;" />
-      </div>
+<body>
+  <main class="page">
+    <section class="container fadeIn">
 
-      <div style="text-align:center; letter-spacing:.12em; text-transform:uppercase; font-size:14px; margin:10px 0 26px;">
-        Full website coming soon
-      </div>
+      <!-- LOGO -->
+      <header class="logoBox">
+        <img class="logoImg" src="logo.jpg" alt="Lords of Form band logo" />
+        <h1 class="visuallyHidden">Lords of Form</h1>
+      </header>
 
-      <nav aria-label="Links"
-           style="display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:14px; align-items:center;">
-        <a href="https://lordsofform.bandcamp.com/" target="_blank" rel="noopener noreferrer"
-           style="display:flex; align-items:center; justify-content:center; padding:16px 14px; border:1px solid rgba(209,177,90,.35); color:#d1b15a; text-decoration:none; letter-spacing:.18em; text-transform:uppercase; font-size:13px;">
-          Bandcamp
-        </a>
+      <!-- RELEASE TEXT -->
+      <p class="comingSoon">FALLOW &amp; FAIN · OUT 24 APRIL</p>
 
-        <a href="https://www.facebook.com/lordsofform/" target="_blank" rel="noopener noreferrer"
-           style="display:flex; align-items:center; justify-content:center; padding:16px 14px; border:1px solid rgba(209,177,90,.35); color:#d1b15a; text-decoration:none; letter-spacing:.18em; text-transform:uppercase; font-size:13px;">
-          Facebook
-        </a>
+      <!-- PLAYER -->
+      <section class="player">
+        <div class="playerGlow"></div>
+        <iframe 
+          src="https://bandcamp.com/EmbeddedPlayer/album=1396544383/size=large/bgcol=000000/linkcol=c9a24a/tracklist=false/artwork=small/transparent=true/"
+          seamless>
+        </iframe>
+      </section>
 
-        <a href="https://www.youtube.com/channel/UCzbmExrlILsdEvipOS1WtDA" target="_blank" rel="noopener noreferrer"
-           style="display:flex; align-items:center; justify-content:center; padding:16px 14px; border:1px solid rgba(209,177,90,.35); color:#d1b15a; text-decoration:none; letter-spacing:.18em; text-transform:uppercase; font-size:13px;">
-          YouTube
-        </a>
-
-        <a href="https://www.instagram.com/lords_of_form/" target="_blank" rel="noopener noreferrer"
-           style="display:flex; align-items:center; justify-content:center; padding:16px 14px; border:1px solid rgba(209,177,90,.35); color:#d1b15a; text-decoration:none; letter-spacing:.18em; text-transform:uppercase; font-size:13px;">
-          Instagram
-        </a>
-
-        <a href="mailto:lordsofform@gmail.com"
-           style="grid-column:1 / span 2; display:flex; align-items:center; justify-content:center; padding:16px 14px; border:1px solid rgba(209,177,90,.35); color:#d1b15a; text-decoration:none; letter-spacing:.18em; text-transform:uppercase; font-size:13px;">
-          Contact
-        </a>
+      <!-- BUTTONS -->
+      <nav class="buttonRow">
+        <a class="bigButton primary" href="https://lordsofform.bandcamp.com/" target="_blank">Listen / Buy</a>
+        <a class="bigButton" href="https://www.facebook.com/lordsofform/" target="_blank">Facebook</a>
+        <a class="bigButton" href="https://www.youtube.com/channel/UCzbmExrlILsdEvipOS1WtDA" target="_blank">YouTube</a>
+        <a class="bigButton" href="https://www.instagram.com/lords_of_form/" target="_blank">Instagram</a>
       </nav>
 
-      <footer style="margin-top:22px; text-align:center; font-size:12px; opacity:.75;">
+      <!-- CONTACT (NOW CENTERED) -->
+      <div class="contactWrap">
+        <a class="bigButton contact" href="mailto:lordsofform@gmail.com">Contact</a>
+      </div>
+
+      <footer>
         © <span id="year"></span> Lords of Form
       </footer>
 
@@ -57,18 +79,5 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
-  <style>
-    /* Mobile layout: 2 columns so buttons never bunch up */
-    @media (max-width: 640px) {
-      nav[aria-label="Links"] { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-      nav[aria-label="Links"] a[href^="mailto:"] { grid-column: 1 / -1 !important; }
-    }
-
-    /* Hover polish (optional but nice) */
-    nav[aria-label="Links"] a:hover {
-      background: rgba(209,177,90,.08);
-    }
-  </style>
 </body>
-</html> trigger pages deploy
+</html>
