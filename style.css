@@ -1,0 +1,644 @@
+/* ==========================================================
+   LORDS OF FORM V3
+   style.css
+   PART 1
+   ========================================================== */
+
+/* Base Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#000;
+    color:#d4af37;
+    font-family:Georgia,serif;
+    line-height:1.8;
+    overflow-x:hidden;
+}
+
+/* Gold Wire Background */
+
+#background{
+    position:fixed;
+    inset:0;
+    background:url("images/goldwires.jpg") center/cover no-repeat;
+    opacity:.07;
+    pointer-events:none;
+    z-index:-2;
+    animation:drift 70s ease-in-out infinite alternate;
+}
+
+@keyframes drift{
+from{transform:scale(1.03) translate(-1%,-1%) rotate(-.25deg);}
+to{transform:scale(1.08) translate(1%,1%) rotate(.25deg);}
+}
+
+/* Lightning Layer (homepage only) */
+
+#flash{
+    position:fixed;
+    inset:0;
+    opacity:0;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    transition:opacity .05s linear;
+    z-index:-1;
+}
+
+/* Typography */
+
+h1,h2,h3,h4,h5,h6,
+nav a{
+    font-family:"IM Fell English SC",serif;
+    font-weight:400;
+    letter-spacing:2px;
+}
+
+a{
+    color:#d4af37;
+    text-decoration:none;
+    transition:.3s;
+}
+
+a:hover{
+    color:#fff2bf;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+  padding:10rem 2rem 4rem;
+}
+
+.logo{
+    width:min(42vw,640px);
+    opacity:0;
+    transform:translateY(20px);
+    animation:fadeLogo 1.8s ease forwards;
+    user-select:none;
+    pointer-events:none;
+}
+
+@keyframes fadeLogo{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+nav{
+    display:flex;
+    gap:3rem;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin:3rem 0;
+    opacity:0;
+    animation:fadeNav 2s ease forwards;
+    animation-delay:.6s;
+}
+
+@keyframes fadeNav{
+to{opacity:1;}
+}
+
+nav a{
+    font-size:1.45rem;
+}
+
+.tagline{
+    max-width:760px;
+    margin-top:4rem;
+    color:#d4af37;
+    font-family:"IM Fell English SC", serif;
+    font-size:1.30rem;
+    line-height:1.7;
+    letter-spacing:1px;
+    text-align:center;
+    opacity:0;
+    animation:fadeText 2s ease forwards;
+    animation-delay:1.2s;
+
+  }  
+
+@keyframes fadeText{
+to{opacity:1;}
+}
+
+/* Generic Pages */
+
+.page{
+    width:min(1100px,90%);
+    margin:0 auto;
+    padding:9rem 0 5rem;
+}
+
+.page h1{
+    font-size:3rem;
+    margin-bottom:2rem;
+}
+
+.page p{
+    color:#cbbd8b;
+    margin-bottom:1.4rem;
+}
+
+/* Store */
+
+.store-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:5rem;
+    align-items:start;
+}
+
+.product{
+    text-align:center;
+}
+
+.product img{
+    width:min(420px,100%);
+    margin:0 auto 2rem;
+    transition:transform .5s;
+}
+
+.product img:hover{
+    transform:scale(1.02);
+}
+
+.product h2{
+    margin-bottom:1rem;
+}
+
+.price{
+    font-size:1.2rem;
+    margin:1rem 0;
+}
+
+.buy-button{
+    display:inline-block;
+    padding:.9rem 2rem;
+    border:1px solid #d4af37;
+    margin-top:1rem;
+}
+
+.buy-button:hover{
+    background:#d4af37;
+    color:#000;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:5rem 2rem;
+    color:#9d8850;
+    border-top:1px solid rgba(212,175,55,.15);
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.logo{
+width:80vw;
+}
+
+nav{
+gap:1.5rem;
+}
+
+nav a{
+font-size:1.2rem;
+}
+
+.page h1{
+font-size:2.2rem;
+}
+
+}
+
+/* ==========================================
+   ABOUT PAGE
+========================================== */
+
+.about-hero{
+
+    position:relative;
+    height:100vh;
+    overflow:hidden;
+
+}
+
+.about-hero > img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    filter:
+        brightness(100%)
+        saturate(95%)
+        contrast(108%);
+
+    animation:
+        heroZoom 30s ease forwards;
+}
+
+@keyframes heroZoom{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.06);
+
+    }
+
+}
+
+.about-overlay{
+
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:flex-start;
+    align-items:center;
+
+    text-align:center;
+
+    padding-top:8vh;
+
+    background:linear-gradient(
+        rgba(0,0,0,.08),
+        rgba(0,0,0,.12),
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.72)
+    );
+
+}
+
+.about-logo{
+
+    width:min(600px,38vw);
+
+    height:auto;
+
+    margin-bottom:10px;
+
+    transform:translateY(-90px);
+
+    filter:drop-shadow(0 8px 25px rgba(0,0,0,.75));
+
+}
+
+
+.scroll-down{
+
+    position:absolute;
+
+    bottom:240px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:2rem;
+
+    color:#d4af37;
+
+    animation:
+        bounce 2s infinite;
+
+}
+@keyframes bounce{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(10px);
+
+    }
+
+}
+
+.about-content{
+
+    max-width:900px;
+
+    margin:140px auto;
+
+    padding:0 30px;
+
+}
+
+.about-content h2{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    font-size:2.4rem;
+
+}
+
+.about-content p{
+
+    margin-bottom:28px;
+
+    color:#d1c08d;
+
+    font-size:1.08rem;
+
+}
+
+.live-photo{
+
+    position:relative;
+
+    margin:140px 0;
+
+}
+
+.live-photo img{
+
+    width:100%;
+    display:block;
+
+}
+
+.live-caption{
+
+    position:absolute;
+
+    left:50%;
+    bottom:60px;
+
+    transform:translateX(-50%);
+
+    font-family:"IM Fell English SC",serif;
+
+    font-size:2rem;
+
+    letter-spacing:2px;
+
+    color:white;
+
+    text-shadow:0 0 18px black;
+
+}
+
+.members{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:40px;
+
+    text-align:center;
+
+}
+
+.members h3{
+
+    margin-bottom:10px;
+
+}
+
+.fans{
+
+    text-align:center;
+
+    font-family:
+        "IM Fell English SC",
+        serif;
+
+    font-size:1.4rem;
+
+    line-height:2;
+
+}
+
+/* Scroll reveal */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(45px);
+
+    transition:
+
+        opacity 1s ease,
+
+        transform 1s ease;
+
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+@media(max-width:900px){
+
+    .about-overlay h1{
+
+    font-size:3rem;
+
+}
+
+.about-logo{
+
+    width:200px;
+
+    transform:translateY(-80px);
+
+}
+
+.members{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.live-caption{
+
+    font-size:1.2rem;
+
+    width:90%;
+
+    text-align:center;
+
+}
+
+}
+.contact-page{
+    text-align:center;
+}
+
+
+.hero{
+    width:100%;
+    margin:0 auto;
+    text-align:center;
+    align-items:center;
+}
+
+.press-quotes{
+
+    max-width:800px;
+
+    margin:140px auto;
+
+    text-align:center;
+
+}
+
+.about-page #flash{
+    opacity:.07 !important;
+    filter:brightness(50%);
+}
+.album-cover{
+
+display:block;
+
+width:min(420px,100%);
+
+margin:40px auto;
+
+box-shadow:0 15px 40px rgba(0,0,0,.45);
+
+transition:transform .4s;
+
+}
+
+.album-cover:hover{
+
+transform:scale(1.02);
+
+}
+
+.album-links{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+margin:35px 0;
+
+}
+.intro{
+    text-align:center;
+}
+
+.intro p{
+    text-align:center;
+}
+.album-cover{
+
+display:block;
+width:min(430px,100%);
+margin:45px auto;
+box-shadow:0 15px 40px rgba(0,0,0,.45);
+transition:transform .35s;
+
+}
+
+.album-cover:hover{
+
+transform:scale(1.02);
+
+}
+
+.album-links{
+
+display:flex;
+justify-content:center;
+gap:18px;
+flex-wrap:wrap;
+margin:35px 0 20px;
+
+}
+.music-page .about-content{
+    max-width:760px;
+}
+.music-page .about-content p{
+    max-width:760px;
+    margin:0 auto 1.5rem auto;
+    line-height:1.8;
+}
+
+.album-cover{
+    display:block;
+    width:min(430px,100%);
+    margin:40px auto;
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
+}
+
+.album-links{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin:45px 0;
+}
+.music-page .about-logo{
+    width:min(1000px, 90vw);
+}
+
+.music-page .about-hero img:first-child{
+    filter: brightness(35%);
+}
+
+.music-page .about-overlay{
+    transform: translateY(30px);
+}
+
+.music-page .music-hero-bg{
+    position:absolute;
+    inset:0;
+    background:#000;
+}
