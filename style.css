@@ -230,6 +230,10 @@ to{opacity:1;}
 .show-card{padding:2.25rem 2rem;border:1px solid rgba(212,175,55,.35);background:rgba(212,175,55,.06);}
 .show-card p{line-height:1.55;}
 .show-card .buy-button{margin-top:.6rem;}
+.past-performances{margin-top:5rem;padding-top:4rem;border-top:1px solid rgba(212,175,55,.22);}
+.past-performances h2{text-align:center;margin-bottom:.5rem;}
+.past-intro{text-align:center;margin-bottom:2rem!important;color:#9d8850!important;}
+.past-show{background:rgba(212,175,55,.035);}
 
 .store-feature{display:grid;grid-template-columns:minmax(180px,280px) 1fr;gap:2.5rem;align-items:center;margin:3rem auto;max-width:780px;text-align:left;}
 .store-feature img{box-shadow:0 15px 40px rgba(0,0,0,.55);}
