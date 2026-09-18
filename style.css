@@ -241,6 +241,19 @@ to{opacity:1;}
 .store-feature img{box-shadow:0 15px 40px rgba(0,0,0,.55);}
 .store-feature h2{font-size:2rem;margin:.4rem 0 1rem;}
 .store-note{max-width:600px;margin:3rem auto!important;}
+.store-page{max-width:1100px;text-align:center;}
+.store-intro{max-width:660px;margin:0 auto 4rem!important;}
+.catalogue-section{text-align:left;margin-top:4.5rem;}
+.catalogue-section h2{text-align:center;font-size:2.3rem;margin-bottom:2rem;}
+.release-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;}
+.release-card{display:flex;min-height:250px;flex-direction:column;align-items:flex-start;padding:1.8rem;border:1px solid rgba(212,175,55,.30);background:rgba(212,175,55,.035);}
+.release-card h3{font-size:1.6rem;line-height:1.1;margin:.5rem 0 1rem;}
+.release-card p:not(.eyebrow){color:#cbbd8b;line-height:1.55;}
+.release-card .buy-button,.release-card .text-link{margin-top:auto;}
+.current-release{background:linear-gradient(135deg,rgba(212,175,55,.13),rgba(0,0,0,.22)),url("images/fallow.jpg") center/cover;position:relative;overflow:hidden;}
+.current-release > *{position:relative;z-index:1;}
+.current-release:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.68);}
+.other-releases .release-card{min-height:170px;}
 
 /* Store */
 
@@ -340,6 +353,8 @@ font-size:2.2rem;
 .mailing-list{padding:1.5rem;}
 .mailing-form{flex-direction:column;align-items:stretch;}
 .mailing-form input{min-width:0;width:100%;}
+.release-grid{grid-template-columns:1fr;}
+.release-card{min-height:0;}
 .home-actions{margin-top:2rem;}
 .home-panel{padding:1.5rem;}
 .store-feature{grid-template-columns:1fr;max-width:360px;text-align:center;gap:1.5rem;}
