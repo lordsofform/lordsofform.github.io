@@ -78,6 +78,18 @@ img{
     max-width:100%;
 }
 
+.visually-hidden{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+}
+
 /* Hero */
 
 .hero{
@@ -144,6 +156,56 @@ nav a{
 to{opacity:1;}
 }
 
+.home-hero{
+    min-height:100vh;
+    justify-content:flex-start;
+    padding-top:8vh;
+}
+
+.home-hero .logo{width:min(34vw,520px);}
+
+.home-hero nav{margin:2.25rem 0;}
+
+.home-hero .tagline{margin-top:1.5rem;}
+
+.home-actions{
+    width:min(980px,100%);
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:1rem;
+    margin-top:3.25rem;
+    opacity:0;
+    animation:fadeText 1.5s ease forwards;
+    animation-delay:1.45s;
+}
+
+.home-panel{
+    padding:2rem;
+    border:1px solid rgba(212,175,55,.36);
+    background:linear-gradient(135deg,rgba(212,175,55,.10),rgba(0,0,0,.35));
+    text-align:left;
+}
+
+.eyebrow{
+    color:#9d8850!important;
+    font-family:"IM Fell English SC",serif;
+    font-size:.85rem!important;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+}
+
+.home-panel h1,.home-panel h2,.show-card h3{font-size:2rem;line-height:1.08;margin:.45rem 0 1.2rem;}
+.home-panel h1 span,.show-card h3 span{font-size:.72em;color:#cbbd8b;}
+.show-dates{margin-bottom:1.5rem;}
+.show-dates p{color:#d9cc9d;margin:.35rem 0;line-height:1.45;}
+.home-release{background:linear-gradient(135deg,rgba(0,0,0,.4),rgba(212,175,55,.16)),url("images/fallow.jpg") center/cover;}
+.home-release > *{position:relative;z-index:1;}
+.home-release{position:relative;overflow:hidden;}
+.home-release:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.62);}
+.home-release p{color:#e0d3a5;line-height:1.5;}
+.home-buttons{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;}
+.text-link{font-size:.95rem;text-decoration:underline;text-underline-offset:4px;}
+
 /* Generic Pages */
 
 .page{
@@ -161,6 +223,18 @@ to{opacity:1;}
     color:#cbbd8b;
     margin-bottom:1.4rem;
 }
+
+.live-page{max-width:920px;}
+.live-page > h2{margin:3rem 0 1.5rem;}
+.show-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;}
+.show-card{padding:2.25rem 2rem;border:1px solid rgba(212,175,55,.35);background:rgba(212,175,55,.06);}
+.show-card p{line-height:1.55;}
+.show-card .buy-button{margin-top:.6rem;}
+
+.store-feature{display:grid;grid-template-columns:minmax(180px,280px) 1fr;gap:2.5rem;align-items:center;margin:3rem auto;max-width:780px;text-align:left;}
+.store-feature img{box-shadow:0 15px 40px rgba(0,0,0,.55);}
+.store-feature h2{font-size:2rem;margin:.4rem 0 1rem;}
+.store-note{max-width:600px;margin:3rem auto!important;}
 
 /* Store */
 
@@ -234,6 +308,13 @@ font-size:1.2rem;
 .page h1{
 font-size:2.2rem;
 }
+
+.home-hero{padding-top:4rem;}
+.home-hero .logo{width:min(82vw,420px);}
+.home-actions,.show-grid{grid-template-columns:1fr;}
+.home-actions{margin-top:2rem;}
+.home-panel{padding:1.5rem;}
+.store-feature{grid-template-columns:1fr;max-width:360px;text-align:center;gap:1.5rem;}
 
 }
 
