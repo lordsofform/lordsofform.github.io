@@ -295,6 +295,24 @@ footer{
     border-top:1px solid rgba(212,175,55,.15);
 }
 
+.footer-signup{display:inline-block;margin-top:.75rem;font-size:.9rem;text-decoration:underline;text-underline-offset:4px;}
+
+.mailing-list{
+    max-width:700px;
+    margin:5rem auto 0;
+    padding:2.5rem;
+    border:1px solid rgba(212,175,55,.32);
+    background:rgba(212,175,55,.035);
+}
+
+.mailing-list h2{font-size:2.2rem;margin:.35rem 0 1rem;}
+.mailing-list > p{max-width:480px;margin-left:auto!important;margin-right:auto!important;}
+.mailing-form{display:flex;justify-content:center;gap:.75rem;margin:2rem 0 1rem;}
+.mailing-form input{min-width:260px;padding:.95rem 1rem;background:#080806;border:1px solid rgba(212,175,55,.55);color:#fff2bf;font:inherit;}
+.mailing-form input::placeholder{color:#a99b6b;}
+.mailing-form .buy-button{margin:0;background:#080806;cursor:pointer;font:inherit;}
+.mailing-note{font-size:.88rem;color:#9d8850!important;}
+
 /* Responsive */
 
 @media(max-width:900px){
@@ -319,6 +337,9 @@ font-size:2.2rem;
 .home-hero .logo{width:min(82vw,420px);}
 .home-actions,.show-grid,.past-grid{grid-template-columns:1fr;}
 .past-grid .past-show + .past-show{border-left:0;border-top:1px solid rgba(212,175,55,.22);}
+.mailing-list{padding:1.5rem;}
+.mailing-form{flex-direction:column;align-items:stretch;}
+.mailing-form input{min-width:0;width:100%;}
 .home-actions{margin-top:2rem;}
 .home-panel{padding:1.5rem;}
 .store-feature{grid-template-columns:1fr;max-width:360px;text-align:center;gap:1.5rem;}
