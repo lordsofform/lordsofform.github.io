@@ -250,9 +250,14 @@ to{opacity:1;}
 .release-card h3{font-size:1.6rem;line-height:1.1;margin:.5rem 0 1rem;}
 .release-card p:not(.eyebrow){color:#cbbd8b;line-height:1.55;}
 .release-card .buy-button,.release-card .text-link{margin-top:auto;}
-.current-release{background:linear-gradient(135deg,rgba(212,175,55,.13),rgba(0,0,0,.22)),url("images/fallow.jpg") center/cover;position:relative;overflow:hidden;}
-.current-release > *{position:relative;z-index:1;}
-.current-release:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.68);}
+.release-cover{position:relative;overflow:hidden;background-position:center;background-size:cover;}
+.release-cover > *{position:relative;z-index:1;}
+.release-cover:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.68);}
+.cover-fallow{background-image:url("images/fallow.jpg");}
+.cover-shared-humanity{background-image:url("images/ourshared.jpg");}
+.cover-hypnotise{background-image:url("images/hypnotise.jpg");}
+.cover-strangers{background-image:url("images/strangers.jpg");}
+.cover-flying{background-image:url("images/flying.jpg");}
 .other-releases .release-card{min-height:170px;}
 
 /* Store */
