@@ -640,6 +640,31 @@ font-size:2.2rem;
 }
 
 }
+
+/* Keep the whole band photograph visible on phones. */
+@media(max-width:600px){
+
+    .about-hero{
+        height:auto;
+        aspect-ratio:1464 / 1074;
+    }
+
+    .about-hero > img{
+        height:100%;
+        object-fit:contain;
+        animation:none;
+    }
+
+    .about-overlay{
+        padding-top:4vw;
+    }
+
+    .about-logo{
+        width:min(52vw,260px);
+        transform:translateY(0);
+    }
+
+}
 .contact-page{
     text-align:center;
 }
