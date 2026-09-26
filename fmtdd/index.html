@@ -103,7 +103,7 @@ function renderWord(text){
   word.replaceChildren(...[...text].map((ch,index)=>{
     const letter=document.createElement("span");
     letter.textContent=ch;
-    if(index>0&&(ch==="E"||ch==="S"))letter.className="mirror-letter";
+    if(index>0&&ch==="E")letter.className="mirror-letter";
     return letter;
   }));
 }
