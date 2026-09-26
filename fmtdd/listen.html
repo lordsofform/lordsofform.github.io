@@ -50,12 +50,20 @@ h1{margin:8px 0 8px;text-align:center;color:var(--pink);text-transform:lowercase
       <div class="track-title">Lullen</div>
       <div class="meta">Melancholy • Winter • Night • Tension<br>Sparse Piano • Cinematic • 86 BPM</div>
       <div class="versions">
-        <div class="version"><button class="play" id="lullenPlay" type="button" aria-label="Play Lullen">▶</button><div class="vname">Full Instrumental</div><div class="duration">1:22</div></div>
+        <div class="version"><button class="play audio-play" type="button" data-audio="lullenAudio" aria-label="Play Lullen">▶</button><div class="vname">Full Instrumental</div><div class="duration">1:22</div></div>
         <div class="version"><div class="play">▶</div><div class="vname">Sync Edit</div><div class="duration">—:—</div></div>
       </div>
       <audio id="lullenAudio" preload="metadata" src="https://raw.githubusercontent.com/lordsofform/fmtdd/main/2.%20Lullen.mp3"></audio>
     </article>
-    <article class="card"><div class="track-title">X</div><div class="meta">Mood / tags to follow</div><div class="versions"><div class="version"><div class="play">▶</div><div class="vname">Full Instrumental</div><div class="duration">—:—</div></div><div class="version"><div class="play">▶</div><div class="vname">Sync Edit</div><div class="duration">—:—</div></div></div></article>
+    <article class="card">
+      <div class="track-title">Aerial Slew</div>
+      <div class="meta">Sci-Fi • Cold • Machinery • Robotics<br>Kosmische • Haunting • Futuristic • Uneasy • 129 BPM</div>
+      <div class="versions">
+        <div class="version"><button class="play audio-play" type="button" data-audio="aerialSlewAudio" aria-label="Play Aerial Slew">▶</button><div class="vname">Full Instrumental</div><div class="duration">3:40</div></div>
+        <div class="version"><div class="play">▶</div><div class="vname">Sync Edit</div><div class="duration">—:—</div></div>
+      </div>
+      <audio id="aerialSlewAudio" preload="metadata" src="https://raw.githubusercontent.com/lordsofform/fmtdd/main/1_Arial%20Slew.mp3"></audio>
+    </article>
     <article class="card"><div class="track-title">X</div><div class="meta">Mood / tags to follow</div><div class="versions"><div class="version"><div class="play">▶</div><div class="vname">Full Instrumental</div><div class="duration">—:—</div></div><div class="version"><div class="play">▶</div><div class="vname">Sync Edit</div><div class="duration">—:—</div></div></div></article>
     <article class="card"><div class="track-title">X</div><div class="meta">Mood / tags to follow</div><div class="versions"><div class="version"><div class="play">▶</div><div class="vname">Full Instrumental</div><div class="duration">—:—</div></div><div class="version"><div class="play">▶</div><div class="vname">Sync Edit</div><div class="duration">—:—</div></div></div></article>
     <article class="card"><div class="track-title">X</div><div class="meta">Mood / tags to follow</div><div class="versions"><div class="version"><div class="play">▶</div><div class="vname">Full Instrumental</div><div class="duration">—:—</div></div><div class="version"><div class="play">▶</div><div class="vname">Sync Edit</div><div class="duration">—:—</div></div></div></article>
@@ -65,22 +73,30 @@ h1{margin:8px 0 8px;text-align:center;color:var(--pink);text-transform:lowercase
   <a class="back" href="index.html">Back</a>
 </main>
 <script>
-const lullenAudio=document.getElementById('lullenAudio');
-const lullenPlay=document.getElementById('lullenPlay');
-lullenPlay.addEventListener('click',()=>{
-  if(lullenAudio.paused){
-    lullenAudio.play();
-    lullenPlay.textContent='❚❚';
-    lullenPlay.setAttribute('aria-label','Pause Lullen');
-  }else{
-    lullenAudio.pause();
-    lullenPlay.textContent='▶';
-    lullenPlay.setAttribute('aria-label','Play Lullen');
-  }
-});
-lullenAudio.addEventListener('ended',()=>{
-  lullenPlay.textContent='▶';
-  lullenPlay.setAttribute('aria-label','Play Lullen');
+const audioButtons=[...document.querySelectorAll('.audio-play')];
+audioButtons.forEach(button=>{
+  const audio=document.getElementById(button.dataset.audio);
+  button.addEventListener('click',()=>{
+    document.querySelectorAll('audio').forEach(other=>{
+      if(other!==audio){other.pause();other.currentTime=other.currentTime;}
+    });
+    audioButtons.forEach(otherButton=>{
+      if(otherButton!==button){otherButton.textContent='▶';otherButton.setAttribute('aria-label',otherButton.getAttribute('aria-label').replace('Pause','Play'));}
+    });
+    if(audio.paused){
+      audio.play();
+      button.textContent='❚❚';
+      button.setAttribute('aria-label',button.getAttribute('aria-label').replace('Play','Pause'));
+    }else{
+      audio.pause();
+      button.textContent='▶';
+      button.setAttribute('aria-label',button.getAttribute('aria-label').replace('Pause','Play'));
+    }
+  });
+  audio.addEventListener('ended',()=>{
+    button.textContent='▶';
+    button.setAttribute('aria-label',button.getAttribute('aria-label').replace('Pause','Play'));
+  });
 });
 </script>
 </body>
