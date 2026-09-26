@@ -17,9 +17,9 @@ body{min-height:100vh;min-height:100svh}
 .wrap{width:min(900px,94vw);display:flex;flex-direction:column;align-items:center}
 .eyebrow{color:var(--lemon);text-transform:uppercase;font-weight:900;letter-spacing:.12em;font-size:clamp(14px,1.7vw,20px);-webkit-text-stroke:.8px var(--black);paint-order:stroke fill;margin-bottom:10px;text-align:center}
 .title{margin:0;font-size:clamp(64px,11vw,150px);line-height:.82;letter-spacing:-.055em;color:var(--pink);text-transform:lowercase;-webkit-text-stroke:2px var(--black);paint-order:stroke fill;text-align:center}
-.intro{margin:20px 0 16px;max-width:720px;text-align:center;color:var(--lemon);font-size:clamp(15px,1.8vw,22px);line-height:1.15;-webkit-text-stroke:.6px var(--black);paint-order:stroke fill}
-.intro span{display:block;text-align:center}
-.sell-line{margin:0 0 22px;text-align:center;color:var(--pink);font-size:clamp(22px,2.8vw,38px);line-height:.95;text-transform:uppercase;letter-spacing:.01em;-webkit-text-stroke:1.6px var(--black);paint-order:stroke fill}
+.intro{margin:22px 0 24px;max-width:760px;text-align:center;color:var(--lemon);font-size:clamp(15px,1.8vw,22px);line-height:1.18;-webkit-text-stroke:.55px var(--black);paint-order:stroke fill}
+.intro .lead{display:block;color:var(--pink);font-size:clamp(25px,3vw,40px);line-height:1;margin-bottom:9px;text-transform:uppercase;-webkit-text-stroke:1.4px var(--black)}
+.intro .detail{display:block;text-align:center}
 .form{width:min(760px,100%);display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1 / -1}
 label{text-transform:uppercase;font-size:12px;letter-spacing:.08em;color:var(--lemon);-webkit-text-stroke:.6px var(--black);paint-order:stroke fill}
@@ -30,16 +30,13 @@ textarea{min-height:150px;resize:vertical}input:focus,textarea:focus{background:
 .btn-send{background:var(--pink);color:var(--black);padding:14px 26px 12px;font-size:20px}
 .direct-email{margin-top:18px;color:var(--lemon);font-size:18px;text-align:center;text-transform:uppercase;letter-spacing:.04em;-webkit-text-stroke:.4px var(--black);paint-order:stroke fill}
 .direct-email a{color:var(--pink);font-size:1.45em;text-decoration:none;border-bottom:2px solid var(--black);-webkit-text-stroke:.6px var(--black);paint-order:stroke fill}
-.rush-note{margin-top:18px;max-width:760px;text-align:center;color:var(--lemon);font-size:13px;line-height:1.2;letter-spacing:.04em;text-transform:uppercase;-webkit-text-stroke:.45px var(--black);paint-order:stroke fill}
-.note{margin-top:10px;text-align:center;color:var(--lemon);font-size:12px;letter-spacing:.06em;text-transform:uppercase;-webkit-text-stroke:.5px var(--black);paint-order:stroke fill}
+.note{margin-top:18px;text-align:center;color:var(--lemon);font-size:12px;letter-spacing:.06em;text-transform:uppercase;-webkit-text-stroke:.5px var(--black);paint-order:stroke fill}
 .back{display:block;width:max-content;margin:24px auto 0;padding:12px 20px 10px;border:3px solid var(--black);box-shadow:5px 5px 0 var(--black);background:var(--lemon);color:var(--black);text-decoration:none;text-transform:uppercase;font-size:18px;font-weight:900}
 @media(max-width:700px){
   .page{padding:22px 12px 34px}.wrap{width:96vw}.eyebrow{font-size:clamp(14px,4.3vw,18px);letter-spacing:.1em}
-  .title{font-size:clamp(62px,18vw,94px)}.intro{font-size:15px;margin:16px 0 14px}
-  .sell-line{font-size:clamp(21px,6.5vw,28px);margin-bottom:20px;-webkit-text-stroke:1.2px var(--black)}
+  .title{font-size:clamp(62px,18vw,94px)}.intro{font-size:15px;margin:18px 0 20px}.intro .lead{font-size:clamp(23px,7vw,30px);margin-bottom:8px;-webkit-text-stroke:1.1px var(--black)}
   .form{grid-template-columns:1fr;gap:12px}.field.full{grid-column:auto}.actions{grid-column:auto;gap:10px}
-  input,textarea{font-size:16px;padding:13px 12px}textarea{min-height:130px}.btn-send{font-size:18px;padding:13px 22px 11px}
-  .direct-email{font-size:17px}.rush-note{font-size:11px;padding:0 8px}
+  input,textarea{font-size:16px;padding:13px 12px}textarea{min-height:130px}.btn-send{font-size:18px;padding:13px 22px 11px}.direct-email{font-size:17px}
 }
 </style>
 </head>
@@ -48,22 +45,15 @@ textarea{min-height:150px;resize:vertical}input:focus,textarea:focus{background:
   <div class="wrap">
     <div class="eyebrow">For Minds That Desire Different</div>
     <h1 class="title">contact</h1>
-    <p class="intro"><span>Like something you heard?</span><span>Tell us what you’re working on and we’ll take it from there.</span></p>
-
-    <div class="sell-line">Hear something unique. Clear it. Get what you need. Fast.</div>
-
+    <p class="intro"><span class="lead">Found something that fits?</span><span class="detail">Tell us what you’re working on. Direct clearance, edits, stems and fast turnaround available.</span></p>
     <form class="form" action="mailto:lordsofform@gmail.com" method="post" enctype="text/plain">
       <div class="field full"><label for="name">Name</label><input id="name" name="Name" type="text" placeholder="Your name"></div>
       <div class="field full"><label for="email">Email</label><input id="email" name="Email" type="email" placeholder="you@example.com"></div>
       <div class="field full"><label for="message">What are you working on?</label><textarea id="message" name="Message" placeholder="Tell us what you like, what you need, or just say hello."></textarea></div>
       <div class="actions"><button class="btn btn-send" type="submit">Send</button></div>
     </form>
-
     <div class="direct-email">or <a href="mailto:lordsofform@gmail.com">email</a></div>
-
-    <div class="rush-note">Rush edits, stems, cutdowns and bespoke versions available — including 24-hour turnaround where required, subject to availability.</div>
     <div class="note">100% master + publishing controlled • direct sync clearance</div>
-
     <a class="back" href="index.html">Back</a>
   </div>
 </main>
