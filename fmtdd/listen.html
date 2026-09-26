@@ -23,7 +23,7 @@ h1{margin:8px 0 8px;text-align:center;color:var(--pink);text-transform:lowercase
 .meta{font:700 12px/1.2 Arial,Helvetica,sans-serif;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px}
 .versions{display:grid;gap:10px;margin-top:auto}
 .version{display:grid;grid-template-columns:46px 1fr auto;align-items:center;gap:10px;border:3px solid var(--black);background:var(--blue);min-height:54px;padding:8px 10px}
-.play{width:32px;height:32px;border:3px solid var(--black);background:var(--pink);display:grid;place-items:center;font-size:16px;font-weight:900;line-height:1}
+.play{width:32px;height:32px;border:3px solid var(--black);background:var(--pink);display:grid;place-items:center;font-size:16px;font-weight:900;line-height:1;cursor:pointer;padding:0;color:var(--black);font-family:inherit}
 .vname{color:var(--lemon);font-size:clamp(15px,1.5vw,19px);text-transform:uppercase;font-weight:900;-webkit-text-stroke:.5px var(--black);paint-order:stroke fill}
 .duration{font:700 12px/1 Arial,Helvetica,sans-serif;color:#fff}
 .available{margin:34px auto 0;width:min(900px,94vw);text-align:center;color:var(--lemon);text-transform:uppercase;font-size:clamp(15px,1.8vw,22px);font-weight:900;letter-spacing:.04em;-webkit-text-stroke:.7px var(--black);paint-order:stroke fill}
@@ -50,9 +50,10 @@ h1{margin:8px 0 8px;text-align:center;color:var(--pink);text-transform:lowercase
       <div class="track-title">Lullen</div>
       <div class="meta">Mood / tags to follow</div>
       <div class="versions">
-        <div class="version"><div class="play">▶</div><div class="vname">Full Instrumental</div><div class="duration">—:—</div></div>
+        <div class="version"><button class="play" id="lullenPlay" type="button" aria-label="Play Lullen">▶</button><div class="vname">Full Instrumental</div><div class="duration">1:22</div></div>
         <div class="version"><div class="play">▶</div><div class="vname">Sync Edit</div><div class="duration">—:—</div></div>
       </div>
+      <audio id="lullenAudio" preload="metadata" src="https://raw.githubusercontent.com/lordsofform/fmtdd/main/2.%20Lullen.mp3"></audio>
     </article>
     <article class="card"><div class="track-title">X</div><div class="meta">Mood / tags to follow</div><div class="versions"><div class="version"><div class="play">▶</div><div class="vname">Full Instrumental</div><div class="duration">—:—</div></div><div class="version"><div class="play">▶</div><div class="vname">Sync Edit</div><div class="duration">—:—</div></div></div></article>
     <article class="card"><div class="track-title">X</div><div class="meta">Mood / tags to follow</div><div class="versions"><div class="version"><div class="play">▶</div><div class="vname">Full Instrumental</div><div class="duration">—:—</div></div><div class="version"><div class="play">▶</div><div class="vname">Sync Edit</div><div class="duration">—:—</div></div></div></article>
@@ -63,5 +64,24 @@ h1{margin:8px 0 8px;text-align:center;color:var(--pink);text-transform:lowercase
   <div class="sub">Full-resolution WAV masters available for licensing and delivery.</div>
   <a class="back" href="index.html">Back</a>
 </main>
+<script>
+const lullenAudio=document.getElementById('lullenAudio');
+const lullenPlay=document.getElementById('lullenPlay');
+lullenPlay.addEventListener('click',()=>{
+  if(lullenAudio.paused){
+    lullenAudio.play();
+    lullenPlay.textContent='❚❚';
+    lullenPlay.setAttribute('aria-label','Pause Lullen');
+  }else{
+    lullenAudio.pause();
+    lullenPlay.textContent='▶';
+    lullenPlay.setAttribute('aria-label','Play Lullen');
+  }
+});
+lullenAudio.addEventListener('ended',()=>{
+  lullenPlay.textContent='▶';
+  lullenPlay.setAttribute('aria-label','Play Lullen');
+});
+</script>
 </body>
 </html>
