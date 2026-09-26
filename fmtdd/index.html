@@ -27,7 +27,10 @@ body{min-height:100vh;min-height:100svh;overflow-x:hidden}
 .flipword{display:inline-block;font:inherit;color:var(--lemon);letter-spacing:inherit;transform-origin:center;will-change:transform,opacity;-webkit-text-stroke:3px var(--black);paint-order:stroke fill}
 .flipword.is-minds{color:var(--lemon)!important}
 .flipword.is-other{color:var(--lemon)!important}
-.mirror-letter{display:inline-block;transform:scaleX(-1);transform-origin:center}
+.custom-e{display:inline-block;width:.66em;height:.82em;margin:0 .01em;vertical-align:-.05em;-webkit-text-stroke:0;color:transparent}
+.custom-e svg{display:block;width:100%;height:100%;overflow:visible}
+.custom-e .e-outline{stroke:var(--black);stroke-width:15;stroke-linecap:square;fill:none}
+.custom-e .e-fill{stroke:var(--lemon);stroke-width:9;stroke-linecap:square;fill:none}
 .flip-out{animation:flipOut .45s ease-in forwards}
 .flip-in{animation:flipIn .55s ease-out forwards}
 @keyframes flipOut{0%{transform:rotateX(0deg);opacity:1}100%{transform:rotateX(-90deg);opacity:0}}
@@ -60,6 +63,8 @@ body{min-height:100vh;min-height:100svh;overflow-x:hidden}
   .l5{width:100%;font-size:clamp(72px,19.4vw,94px)}
   .flip-holder{min-width:7.1ch}
   .flipword{-webkit-text-stroke:2px var(--black)}
+  .custom-e .e-outline{stroke-width:13}
+  .custom-e .e-fill{stroke-width:8}
   .rights-line{margin-top:11px;font-size:clamp(9px,2.45vw,12px);letter-spacing:.055em;line-height:1.15;min-height:2.2em;padding:0 10px;-webkit-text-stroke:.65px var(--black)}
   .ctas{width:100%;gap:12px}
   .btn{font-size:clamp(21px,5.9vw,28px);padding:15px 18px 12px;min-width:0;flex:1;box-shadow:5px 5px 0 var(--black)}
@@ -99,24 +104,31 @@ body{min-height:100vh;min-height:100svh;overflow-x:hidden}
 const words=["MINDS","DIRECTORS","FILMMAKERS","EDITORS","CREATIVES","BRANDS","AGENCIES","PRODUCERS","SUPERVISORS","STUDIOS","STORYTELLERS","DREAMERS","OUTSIDERS","VISIONARIES","MAKERS","ARTISTS"];
 const word=document.getElementById("word");
 let i=0;
+const customE=`<svg viewBox="0 0 100 120" aria-hidden="true" focusable="false"><path class="e-outline" d="M50 12V108M18 22H82M18 60H76M18 98H82"/><path class="e-fill" d="M50 12V108M18 22H82M18 60H76M18 98H82"/></svg>`;
 function renderWord(text){
+  word.setAttribute("aria-label",text);
   word.replaceChildren(...[...text].map((ch,index)=>{
     const letter=document.createElement("span");
-    letter.textContent=ch;
-    if(index>0&&ch==="E")letter.className="mirror-letter";
+    letter.setAttribute("aria-hidden","true");
+    if(index>0&&ch==="E"){
+      letter.className="custom-e";
+      letter.innerHTML=customE;
+    }else{
+      letter.textContent=ch;
+    }
     return letter;
   }));
 }
-function setWordColor(){const isMinds=word.textContent.trim()==="MINDS";word.classList.toggle("is-minds",isMinds);word.classList.toggle("is-other",!isMinds)}
+function setWordColor(text){const isMinds=text==="MINDS";word.classList.toggle("is-minds",isMinds);word.classList.toggle("is-other",!isMinds)}
 renderWord(words[0]);
-setWordColor();
+setWordColor(words[0]);
 function flipWord(){
   word.classList.remove("flip-in");
   word.classList.add("flip-out");
   setTimeout(()=>{
     i=(i+1)%words.length;
     renderWord(words[i]);
-    setWordColor();
+    setWordColor(words[i]);
     word.classList.remove("flip-out");
     void word.offsetWidth;
     word.classList.add("flip-in");
