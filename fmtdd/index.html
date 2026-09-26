@@ -27,6 +27,7 @@ body{min-height:100vh;min-height:100svh;overflow-x:hidden}
 .flipword{display:inline-block;font:inherit;color:var(--lemon);letter-spacing:inherit;transform-origin:center;will-change:transform,opacity;-webkit-text-stroke:3px var(--black);paint-order:stroke fill}
 .flipword.is-minds{color:var(--lemon)!important}
 .flipword.is-other{color:var(--lemon)!important}
+.mirror-letter{display:inline-block;transform:scaleX(-1);transform-origin:center}
 .flip-out{animation:flipOut .45s ease-in forwards}
 .flip-in{animation:flipIn .55s ease-out forwards}
 @keyframes flipOut{0%{transform:rotateX(0deg);opacity:1}100%{transform:rotateX(-90deg);opacity:0}}
@@ -98,14 +99,23 @@ body{min-height:100vh;min-height:100svh;overflow-x:hidden}
 const words=["MINDS","DIRECTORS","FILMMAKERS","EDITORS","CREATIVES","BRANDS","AGENCIES","PRODUCERS","SUPERVISORS","STUDIOS","STORYTELLERS","DREAMERS","OUTSIDERS","VISIONARIES","MAKERS","ARTISTS"];
 const word=document.getElementById("word");
 let i=0;
+function renderWord(text){
+  word.replaceChildren(...[...text].map((ch,index)=>{
+    const letter=document.createElement("span");
+    letter.textContent=ch;
+    if(index>0&&(ch==="E"||ch==="S"))letter.className="mirror-letter";
+    return letter;
+  }));
+}
 function setWordColor(){const isMinds=word.textContent.trim()==="MINDS";word.classList.toggle("is-minds",isMinds);word.classList.toggle("is-other",!isMinds)}
+renderWord(words[0]);
 setWordColor();
 function flipWord(){
   word.classList.remove("flip-in");
   word.classList.add("flip-out");
   setTimeout(()=>{
     i=(i+1)%words.length;
-    word.textContent=words[i];
+    renderWord(words[i]);
     setWordColor();
     word.classList.remove("flip-out");
     void word.offsetWidth;
