@@ -16,29 +16,29 @@ html,body{margin:0;width:100%;min-height:100%;background:var(--blue);font-family
 body{min-height:100vh;min-height:100svh;overflow-x:hidden}
 .hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;padding:24px 12px}
 .stack{width:min(1480px,96vw);display:flex;flex-direction:column;align-items:center}
-.top-title{color:var(--lemon);font-size:clamp(10px,.88vw,17.6px);letter-spacing:.16em;text-transform:uppercase;-webkit-text-stroke:.8px var(--black);paint-order:stroke fill;margin-bottom:14px;transform:translateY(-5px)}
-.line{display:flex;justify-content:center;align-items:center;text-align:center;font-weight:900;line-height:.86;letter-spacing:-.055em;white-space:nowrap;color:var(--pink);-webkit-text-stroke:2px var(--black);paint-order:stroke fill}
+.top-title{color:var(--lemon);font-size:clamp(10px,.88vw,17.6px);letter-spacing:.16em;text-transform:uppercase;-webkit-text-stroke:1px var(--black);paint-order:stroke fill;margin-bottom:14px;transform:translateY(-5px)}
+.line{display:flex;justify-content:center;align-items:center;text-align:center;font-weight:900;line-height:.86;letter-spacing:-.055em;white-space:nowrap;color:var(--pink);-webkit-text-stroke:3px var(--black);paint-order:stroke fill}
 .l1{width:20%;font-size:clamp(38px,4.6vw,82px)}
 .l2{width:38%;font-size:clamp(44px,5.8vw,100px)}
 .l3{width:54%;font-size:clamp(56px,7.25vw,122px)}
 .l4{width:76%;font-size:clamp(70px,9.35vw,158px)}
 .l5{width:100%;font-size:clamp(88px,12.1vw,206px)}
 .flip-holder{display:inline-flex;justify-content:center;align-items:center;min-width:8.8ch;perspective:900px}
-.flipword{display:inline-block;font:inherit;color:var(--lemon);letter-spacing:inherit;transform-origin:center;will-change:transform,opacity;-webkit-text-stroke:2px var(--black);paint-order:stroke fill}
+.flipword{display:inline-block;font:inherit;color:var(--lemon);letter-spacing:inherit;transform-origin:center;will-change:transform,opacity;-webkit-text-stroke:3px var(--black);paint-order:stroke fill}
 .flipword.is-minds{color:var(--lemon)!important}
 .flipword.is-other{color:var(--lemon)!important}
 .flip-out{animation:flipOut .45s ease-in forwards}
 .flip-in{animation:flipIn .55s ease-out forwards}
 @keyframes flipOut{0%{transform:rotateX(0deg);opacity:1}100%{transform:rotateX(-90deg);opacity:0}}
 @keyframes flipIn{0%{transform:rotateX(90deg);opacity:0}100%{transform:rotateX(0deg);opacity:1}}
-.rights-line{margin-top:10px;min-height:1.25em;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--lemon);text-transform:uppercase;font-weight:900;letter-spacing:.08em;font-size:clamp(11px,1.1vw,20px);-webkit-text-stroke:.8px var(--black);paint-order:stroke fill;perspective:700px}
+.rights-line{margin-top:10px;min-height:1.25em;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--lemon);text-transform:uppercase;font-weight:900;letter-spacing:.08em;font-size:clamp(11px,1.1vw,20px);-webkit-text-stroke:1px var(--black);paint-order:stroke fill;perspective:700px}
 .rights-word{display:inline-block;transform-origin:center;will-change:transform,opacity}
 .rights-out{animation:flipOut .45s ease-in forwards}
 .rights-in{animation:flipIn .55s ease-out forwards}
 .ctas{margin-top:24px;display:flex;gap:18px}
 .btn{text-decoration:none;text-transform:uppercase;font-weight:900;border:3px solid var(--black);box-shadow:6px 6px 0 var(--black);font-size:clamp(22px,2.05vw,38px);padding:16px 28px 14px;min-width:190px;text-align:center}
 .listen{background:var(--lemon);color:var(--black)}
-.contact{background:var(--lemon);color:var(--pink);-webkit-text-stroke:.7px var(--black);paint-order:stroke fill}
+.contact{background:var(--lemon);color:var(--pink);-webkit-text-stroke:.8px var(--black);paint-order:stroke fill}
 @media(min-width:1800px){
   .stack{width:min(1680px,92vw)}
   .top-title{font-size:clamp(15.4px,.79vw,22px);margin-bottom:16px;transform:translateY(-7px)}
@@ -53,14 +53,16 @@ body{min-height:100vh;min-height:100svh;overflow-x:hidden}
 @media(max-width:700px){
   .hero{align-items:flex-start;padding:max(5.5vh,env(safe-area-inset-top)) 6px max(4vh,env(safe-area-inset-bottom))}
   .stack{width:98vw}
-  .top-title{font-size:clamp(10px,2.9vw,13px);letter-spacing:.12em;margin-bottom:7px;transform:none}
+  .top-title{font-size:clamp(10px,2.9vw,13px);letter-spacing:.12em;margin-bottom:7px;transform:none;-webkit-text-stroke:.8px var(--black)}
+  .line{-webkit-text-stroke:2px var(--black)}
   .l1{width:34%;font-size:clamp(38px,10vw,50px)}
   .l2{width:72%;font-size:clamp(48px,13vw,64px)}
   .l3{width:78%;font-size:clamp(58px,15vw,74px)}
   .l4{width:92%;font-size:clamp(70px,18vw,88px)}
   .l5{width:100%;font-size:clamp(72px,19.4vw,94px)}
   .flip-holder{min-width:7.1ch}
-  .rights-line{margin-top:10px;font-size:clamp(10px,2.7vw,13px);letter-spacing:.065em;min-height:2.2em;padding:0 10px}
+  .flipword{-webkit-text-stroke:2px var(--black)}
+  .rights-line{margin-top:10px;font-size:clamp(10px,2.7vw,13px);letter-spacing:.065em;min-height:2.2em;padding:0 10px;-webkit-text-stroke:.8px var(--black)}
   .ctas{width:100%;gap:12px}
   .btn{font-size:clamp(21px,5.9vw,28px);padding:15px 18px 12px;min-width:0;flex:1;box-shadow:5px 5px 0 var(--black)}
 }
