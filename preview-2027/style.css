@@ -844,7 +844,15 @@ nav{
     text-shadow:none;
     transition:color .35s ease-out, text-shadow .6s ease-out;
 }
-.home-hero .tagline-detail{font-size:1rem;}
+.home-hero .tagline-detail{
+    font-size:1rem;
+    text-shadow:none;
+    transition:color .35s ease-out, text-shadow .6s ease-out;
+}
+.home-hero .tagline-detail.lightning-strike{
+    color:#c783ed;
+    text-shadow:0 0 10px rgba(186,84,238,.85),0 0 22px rgba(148,48,205,.6);
+}
 .home-hero .brand-line.lightning-strike{
     color:#ff35a5;
     text-shadow:0 0 10px rgba(255,55,169,.95),0 0 26px rgba(255,36,155,.75);

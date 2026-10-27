@@ -1,15 +1,15 @@
 const flash = document.getElementById("flash");
 
 if (flash) {
-    const brandLine = document.querySelector(".home-hero .brand-line");
+    const taglineLines = document.querySelectorAll(".home-hero .brand-line, .home-hero .tagline-detail");
     let brandFlashTimer;
 
     function flashBrand(duration) {
-        if (!brandLine) return;
+        if (!taglineLines.length) return;
         clearTimeout(brandFlashTimer);
-        brandLine.classList.add("lightning-strike");
+        taglineLines.forEach(line => line.classList.add("lightning-strike"));
         brandFlashTimer = setTimeout(() => {
-            brandLine.classList.remove("lightning-strike");
+            taglineLines.forEach(line => line.classList.remove("lightning-strike"));
         }, Math.max(duration, 900));
     }
 
