@@ -10,7 +10,7 @@ if (flash) {
         brandLine.classList.add("lightning-strike");
         brandFlashTimer = setTimeout(() => {
             brandLine.classList.remove("lightning-strike");
-        }, duration);
+        }, Math.max(duration, 900));
     }
 
     const images = [
