@@ -937,3 +937,11 @@ nav{
     color:#ff35a5;
     text-shadow:0 0 10px rgba(255,55,169,.95),0 0 26px rgba(255,36,155,.75);
 }
+
+/* Match homepage supporting lines to repetition, texture and atmosphere. */
+.home-panel p.tagline-detail{
+    font-family:"IM Fell English SC",serif;
+    font-size:1rem;
+    line-height:1.7;
+    letter-spacing:1px;
+}
