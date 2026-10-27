@@ -156,15 +156,16 @@ nav a{
 to{opacity:1;}
 }
 
+/* The logo artwork has transparent space below it; balance it above the menu. */
 .home-hero{
     min-height:100vh;
     justify-content:flex-start;
-    padding-top:8vh;
+    padding-top:calc(1.5rem + min(4.35vw,53px));
 }
 
-.home-hero .logo{width:min(34vw,520px);}
+.home-hero .logo{width:min(56vw,680px);}
 
-.home-hero nav{margin:2.25rem 0;}
+.home-hero nav{margin:1.5rem 0 2.25rem;}
 
 .home-hero .tagline{margin-top:1.5rem;}
 
@@ -351,8 +352,8 @@ font-size:1.2rem;
 font-size:2.2rem;
 }
 
-.home-hero{padding-top:4rem;}
-.home-hero .logo{width:min(82vw,420px);}
+.home-hero{padding-top:calc(1.5rem + min(7vw,39px));}
+.home-hero .logo{width:min(90vw,500px);max-width:90vw;}
 .home-actions,.show-grid,.past-grid{grid-template-columns:1fr;}
 .past-grid .past-show + .past-show{border-left:0;border-top:1px solid rgba(212,175,55,.22);}
 .mailing-list{padding:1.5rem;}
