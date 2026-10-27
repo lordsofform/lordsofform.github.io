@@ -867,3 +867,15 @@ nav{
     background:radial-gradient(ellipse at center, rgba(212,175,55,.065) 0%, rgba(0,0,0,0) 75%);
 }
 .home-release:before{display:none;}
+
+/* Large, centred press quotes for the booking page. */
+.booking-press h2{text-align:center;}
+.booking-press blockquote{
+    max-width:800px;
+    margin:2rem auto;
+    text-align:center;
+    font-size:1.35rem;
+    line-height:1.8;
+    color:#e7bbce;
+}
+.booking-press blockquote span{color:#d4af37;}
