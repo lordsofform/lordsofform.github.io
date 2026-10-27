@@ -916,3 +916,24 @@ nav{
     background:transparent;
     color:#d4af37;
 }
+
+/* Match the two homepage action links to the main tagline. */
+.home-panel .home-buttons .buy-button{
+    max-width:100%;
+    color:#f0d37a;
+    font-family:"IM Fell English SC",serif;
+    font-size:clamp(1.45rem,4.5vw,1.65rem);
+    line-height:1.35;
+    letter-spacing:1px;
+    text-decoration:none;
+    text-shadow:none;
+    transition:color .35s ease-out, text-shadow .6s ease-out;
+}
+.home-panel .home-buttons .buy-button:hover{
+    color:#f0d37a;
+    text-decoration:none;
+}
+.home-panel .home-buttons .buy-button.lightning-strike{
+    color:#ff35a5;
+    text-shadow:0 0 10px rgba(255,55,169,.95),0 0 26px rgba(255,36,155,.75);
+}

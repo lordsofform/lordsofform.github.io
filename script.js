@@ -1,7 +1,7 @@
 const flash = document.getElementById("flash");
 
 if (flash) {
-    const taglineLines = document.querySelectorAll(".home-hero .brand-line, .home-hero .tagline-detail");
+    const taglineLines = document.querySelectorAll(".home-hero .brand-line, .home-hero .tagline-detail, .home-hero .home-panel .home-buttons .buy-button");
     let brandFlashTimer;
 
     function flashBrand(duration) {
