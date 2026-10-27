@@ -816,3 +816,23 @@ margin:35px 0 20px;
 .recent-shows{border-top:1px solid rgba(212,175,55,.22);padding-top:1.5rem;text-align:center;}
 .recent-shows p{margin:.2rem 0;}
 @media(max-width:600px){.booking-photo{max-height:none;object-fit:contain;}.booking-links .buy-button{padding:.8rem 1.1rem;}}
+
+/* Keep navigation available while browsing longer pages. */
+body{overflow-x:clip;}
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    align-self:stretch;
+    padding:.65rem 1.25rem;
+    background:rgba(0,0,0,.94);
+    border-bottom:1px solid rgba(212,175,55,.25);
+}
+@media(max-width:900px){
+    nav{gap:.35rem 1rem;padding:.55rem .65rem;}
+    nav a{font-size:1rem;letter-spacing:1px;}
+}
+@media(max-width:420px){
+    nav{gap:.25rem .7rem;}
+    nav a{font-size:.9rem;letter-spacing:.6px;}
+}
