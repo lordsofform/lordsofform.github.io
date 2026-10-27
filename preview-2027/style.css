@@ -1,0 +1,818 @@
+/* ==========================================================
+   LORDS OF FORM V3
+   style.css
+   PART 1
+   ========================================================== */
+
+/* Base Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#000;
+    color:#d4af37;
+    font-family:Georgia,serif;
+    line-height:1.8;
+    overflow-x:hidden;
+}
+
+/* Gold Wire Background */
+
+#background{
+    position:fixed;
+    inset:0;
+    background:url("../images/goldwires.jpg") center/cover no-repeat;
+    opacity:.07;
+    pointer-events:none;
+    z-index:-2;
+    animation:drift 70s ease-in-out infinite alternate;
+}
+
+@keyframes drift{
+from{transform:scale(1.03) translate(-1%,-1%) rotate(-.25deg);}
+to{transform:scale(1.08) translate(1%,1%) rotate(.25deg);}
+}
+
+/* Lightning Layer (homepage only) */
+
+#flash{
+    position:fixed;
+    inset:0;
+    opacity:0;
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    transition:opacity .05s linear;
+    z-index:-1;
+}
+
+/* Typography */
+
+h1,h2,h3,h4,h5,h6,
+nav a{
+    font-family:"IM Fell English SC",serif;
+    font-weight:400;
+    letter-spacing:2px;
+}
+
+a{
+    color:#d4af37;
+    text-decoration:none;
+    transition:.3s;
+}
+
+a:hover{
+    color:#fff2bf;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+.visually-hidden{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+}
+
+/* Hero */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+  padding:10rem 2rem 4rem;
+}
+
+.logo{
+    width:min(42vw,640px);
+    opacity:0;
+    transform:translateY(20px);
+    animation:fadeLogo 1.8s ease forwards;
+    user-select:none;
+    pointer-events:none;
+}
+
+@keyframes fadeLogo{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+nav{
+    display:flex;
+    gap:3rem;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin:3rem 0;
+    opacity:0;
+    animation:fadeNav 2s ease forwards;
+    animation-delay:.6s;
+}
+
+@keyframes fadeNav{
+to{opacity:1;}
+}
+
+nav a{
+    font-size:1.45rem;
+}
+
+.tagline{
+    max-width:760px;
+    margin-top:4rem;
+    color:#d4af37;
+    font-family:"IM Fell English SC", serif;
+    font-size:1.30rem;
+    line-height:1.7;
+    letter-spacing:1px;
+    text-align:center;
+    opacity:0;
+    animation:fadeText 2s ease forwards;
+    animation-delay:1.2s;
+
+  }  
+
+@keyframes fadeText{
+to{opacity:1;}
+}
+
+.home-hero{
+    min-height:100vh;
+    justify-content:flex-start;
+    padding-top:8vh;
+}
+
+.home-hero .logo{width:min(34vw,520px);}
+
+.home-hero nav{margin:2.25rem 0;}
+
+.home-hero .tagline{margin-top:1.5rem;}
+
+.home-actions{
+    width:min(980px,100%);
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:1rem;
+    margin-top:3.25rem;
+    opacity:0;
+    animation:fadeText 1.5s ease forwards;
+    animation-delay:1.45s;
+}
+
+.home-panel{
+    padding:2rem;
+    border:1px solid rgba(212,175,55,.36);
+    background:linear-gradient(135deg,rgba(212,175,55,.10),rgba(0,0,0,.35));
+    text-align:left;
+}
+
+.eyebrow{
+    color:#9d8850!important;
+    font-family:"IM Fell English SC",serif;
+    font-size:.85rem!important;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+}
+
+.home-panel h1,.home-panel h2,.show-card h3{font-size:2rem;line-height:1.08;margin:.45rem 0 1.2rem;}
+.home-panel h1 span,.show-card h3 span{font-size:.72em;color:#cbbd8b;}
+.show-dates{margin-bottom:1.5rem;}
+.show-dates p{color:#d9cc9d;margin:.35rem 0;line-height:1.45;}
+.home-release{background:linear-gradient(135deg,rgba(0,0,0,.4),rgba(212,175,55,.16)),url("../images/fallow.jpg") center/cover;}
+.home-release > *{position:relative;z-index:1;}
+.home-release{position:relative;overflow:hidden;}
+.home-release:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.62);}
+.home-release p{color:#e0d3a5;line-height:1.5;}
+.home-buttons{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;}
+.text-link{font-size:.95rem;text-decoration:underline;text-underline-offset:4px;}
+
+/* Generic Pages */
+
+.page{
+    width:min(1100px,90%);
+    margin:0 auto;
+    padding:9rem 0 5rem;
+}
+
+.page h1{
+    font-size:3rem;
+    margin-bottom:2rem;
+}
+
+.page p{
+    color:#cbbd8b;
+    margin-bottom:1.4rem;
+}
+
+.live-page{max-width:920px;padding-top:4.5rem;}
+.live-page > h2{margin:3rem 0 1.5rem;}
+.show-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem;}
+.show-card{padding:2.25rem 2rem;border:1px solid rgba(212,175,55,.35);background:rgba(212,175,55,.06);}
+.show-card p{line-height:1.55;}
+.show-card .buy-button{margin-top:.6rem;}
+.past-performances{margin-top:5rem;padding:2.5rem;border:1px solid rgba(212,175,55,.32);background:rgba(212,175,55,.035);}
+.past-performances h2{text-align:center;margin-bottom:.5rem;}
+.past-grid{gap:0;}
+.past-grid .past-show{padding:1.25rem 1.5rem;border:0;background:transparent;}
+.past-grid .past-show + .past-show{border-left:1px solid rgba(212,175,55,.22);}
+.past-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+
+.store-feature{display:grid;grid-template-columns:minmax(180px,280px) 1fr;gap:2.5rem;align-items:center;margin:3rem auto;max-width:780px;text-align:left;}
+.store-feature img{box-shadow:0 15px 40px rgba(0,0,0,.55);}
+.store-feature h2{font-size:2rem;margin:.4rem 0 1rem;}
+.store-note{max-width:600px;margin:3rem auto!important;}
+.store-page{max-width:1100px;text-align:center;}
+.store-intro{max-width:660px;margin:0 auto 4rem!important;}
+.catalogue-section{text-align:left;margin-top:4.5rem;}
+.catalogue-section h2{text-align:center;font-size:2.3rem;margin-bottom:2rem;}
+.release-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;}
+.release-card{display:flex;min-height:250px;flex-direction:column;align-items:flex-start;padding:1.8rem;border:1px solid rgba(212,175,55,.30);background:rgba(212,175,55,.035);}
+.release-card h3{font-size:1.6rem;line-height:1.1;margin:.5rem 0 1rem;}
+.release-card p:not(.eyebrow){color:#cbbd8b;line-height:1.55;}
+.release-card .buy-button,.release-card .text-link{margin-top:auto;}
+.release-cover{position:relative;overflow:hidden;background-position:center;background-size:cover;}
+.release-cover > *{position:relative;z-index:1;}
+.release-cover:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.68);}
+.cover-fallow{background-image:url("../images/fallow.jpg");}
+.cover-shared-humanity{background-image:url("../images/ourshared.jpg");}
+.cover-hypnotise{background-image:url("../images/hypnotise.jpg");}
+.cover-strangers{background-image:url("../images/strangers.jpg");}
+.cover-flying{background-image:url("../images/flying.jpg");}
+.other-releases .release-card{min-height:170px;}
+
+/* Store */
+
+.store-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:5rem;
+    align-items:start;
+}
+
+.product{
+    text-align:center;
+}
+
+.product img{
+    width:min(420px,100%);
+    margin:0 auto 2rem;
+    transition:transform .5s;
+}
+
+.product img:hover{
+    transform:scale(1.02);
+}
+
+.product h2{
+    margin-bottom:1rem;
+}
+
+.price{
+    font-size:1.2rem;
+    margin:1rem 0;
+}
+
+.buy-button{
+    display:inline-block;
+    padding:.9rem 2rem;
+    border:1px solid #d4af37;
+    margin-top:1rem;
+}
+
+.buy-button:hover{
+    background:#d4af37;
+    color:#000;
+}
+
+/* Footer */
+
+footer{
+    text-align:center;
+    padding:5rem 2rem;
+    color:#9d8850;
+    border-top:1px solid rgba(212,175,55,.15);
+}
+
+.footer-signup{display:inline-block;margin-top:.75rem;font-size:.9rem;text-decoration:underline;text-underline-offset:4px;}
+
+.mailing-list{
+    max-width:700px;
+    margin:5rem auto 0;
+    padding:2.5rem;
+    border:1px solid rgba(212,175,55,.32);
+    background:rgba(212,175,55,.035);
+}
+
+.mailing-list h2{font-size:2.2rem;margin:.35rem 0 1rem;}
+.mailing-list > p{max-width:480px;margin-left:auto!important;margin-right:auto!important;}
+.mailing-form{display:flex;justify-content:center;gap:.75rem;margin:2rem 0 1rem;}
+.mailing-form input{min-width:260px;padding:.95rem 1rem;background:#080806;border:1px solid rgba(212,175,55,.55);color:#fff2bf;font:inherit;}
+.mailing-form input::placeholder{color:#a99b6b;}
+.mailing-form .buy-button{margin:0;background:#080806;cursor:pointer;font:inherit;}
+.mailing-note{font-size:.88rem;color:#9d8850!important;}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.logo{
+width:80vw;
+}
+
+nav{
+gap:1.5rem;
+}
+
+nav a{
+font-size:1.2rem;
+}
+
+.page h1{
+font-size:2.2rem;
+}
+
+.home-hero{padding-top:4rem;}
+.home-hero .logo{width:min(82vw,420px);}
+.home-actions,.show-grid,.past-grid{grid-template-columns:1fr;}
+.past-grid .past-show + .past-show{border-left:0;border-top:1px solid rgba(212,175,55,.22);}
+.mailing-list{padding:1.5rem;}
+.mailing-form{flex-direction:column;align-items:stretch;}
+.mailing-form input{min-width:0;width:100%;}
+.release-grid{grid-template-columns:1fr;}
+.release-card{min-height:0;}
+.home-actions{margin-top:2rem;}
+.home-panel{padding:1.5rem;}
+.store-feature{grid-template-columns:1fr;max-width:360px;text-align:center;gap:1.5rem;}
+
+}
+
+/* ==========================================
+   ABOUT PAGE
+========================================== */
+
+.about-hero{
+
+    position:relative;
+    height:100vh;
+    overflow:hidden;
+
+}
+
+.about-hero > img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    filter:
+        brightness(100%)
+        saturate(95%)
+        contrast(108%);
+
+    animation:
+        heroZoom 30s ease forwards;
+}
+
+@keyframes heroZoom{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.06);
+
+    }
+
+}
+
+.about-overlay{
+
+    position:absolute;
+    inset:0;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:flex-start;
+    align-items:center;
+
+    text-align:center;
+
+    padding-top:8vh;
+
+    background:linear-gradient(
+        rgba(0,0,0,.08),
+        rgba(0,0,0,.12),
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.72)
+    );
+
+}
+
+.about-logo{
+
+    width:min(600px,38vw);
+
+    height:auto;
+
+    margin-bottom:10px;
+
+    transform:translateY(-90px);
+
+    filter:drop-shadow(0 8px 25px rgba(0,0,0,.75));
+
+}
+
+
+.scroll-down{
+
+    position:absolute;
+
+    bottom:240px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:2rem;
+
+    color:#d4af37;
+
+    animation:
+        bounce 2s infinite;
+
+}
+@keyframes bounce{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(10px);
+
+    }
+
+}
+
+.about-content{
+
+    max-width:900px;
+
+    margin:140px auto;
+
+    padding:0 30px;
+
+}
+
+.about-content h2{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    font-size:2.4rem;
+
+}
+
+.about-content p{
+
+    margin-bottom:28px;
+
+    color:#d1c08d;
+
+    font-size:1.08rem;
+
+}
+
+.live-photo{
+
+    position:relative;
+
+    margin:140px 0;
+
+}
+
+.live-photo img{
+
+    width:100%;
+    display:block;
+
+}
+
+.live-caption{
+
+    position:absolute;
+
+    left:50%;
+    bottom:60px;
+
+    transform:translateX(-50%);
+
+    font-family:"IM Fell English SC",serif;
+
+    font-size:2rem;
+
+    letter-spacing:2px;
+
+    color:white;
+
+    text-shadow:0 0 18px black;
+
+}
+
+.members{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:40px;
+
+    text-align:center;
+
+}
+
+.members h3{
+
+    margin-bottom:10px;
+
+}
+
+.fans{
+
+    text-align:center;
+
+    font-family:
+        "IM Fell English SC",
+        serif;
+
+    font-size:1.4rem;
+
+    line-height:2;
+
+}
+
+/* Scroll reveal */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(45px);
+
+    transition:
+
+        opacity 1s ease,
+
+        transform 1s ease;
+
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+@media(max-width:900px){
+
+    .about-overlay h1{
+
+    font-size:3rem;
+
+}
+
+.about-logo{
+
+    width:200px;
+
+    transform:translateY(-80px);
+
+}
+
+.members{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.live-caption{
+
+    font-size:1.2rem;
+
+    width:90%;
+
+    text-align:center;
+
+}
+
+}
+
+/* Keep the whole band photograph visible on phones. */
+@media(max-width:600px){
+
+    .about-hero{
+        height:auto;
+        aspect-ratio:1464 / 1074;
+    }
+
+    .about-hero > img{
+        height:100%;
+        object-fit:contain;
+        animation:none;
+    }
+
+    .about-overlay{
+        padding-top:4vw;
+    }
+
+    .about-logo{
+        width:min(52vw,260px);
+        transform:translateY(0);
+    }
+
+}
+.contact-page{
+    text-align:center;
+}
+
+
+.hero{
+    width:100%;
+    margin:0 auto;
+    text-align:center;
+    align-items:center;
+}
+
+.press-quotes{
+
+    max-width:800px;
+
+    margin:140px auto;
+
+    text-align:center;
+
+}
+
+.press-quotes p{
+
+    font-size:1.35rem;
+
+}
+
+.about-page #flash{
+    opacity:.07 !important;
+    filter:brightness(50%);
+}
+.album-cover{
+
+display:block;
+
+width:min(420px,100%);
+
+margin:40px auto;
+
+box-shadow:0 15px 40px rgba(0,0,0,.45);
+
+transition:transform .4s;
+
+}
+
+.album-cover:hover{
+
+transform:scale(1.02);
+
+}
+
+.album-links{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+margin:35px 0;
+
+}
+.intro{
+    text-align:center;
+}
+
+.intro p{
+    text-align:center;
+}
+.album-cover{
+
+display:block;
+width:min(430px,100%);
+margin:45px auto;
+box-shadow:0 15px 40px rgba(0,0,0,.45);
+transition:transform .35s;
+
+}
+
+.album-cover:hover{
+
+transform:scale(1.02);
+
+}
+
+.album-links{
+
+display:flex;
+justify-content:center;
+gap:18px;
+flex-wrap:wrap;
+margin:35px 0 20px;
+
+}
+.music-page .about-content{
+    max-width:760px;
+}
+.music-page .about-content p{
+    max-width:760px;
+    margin:0 auto 1.5rem auto;
+    line-height:1.8;
+}
+
+.album-cover{
+    display:block;
+    width:min(430px,100%);
+    margin:40px auto;
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
+}
+
+.album-links{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin:45px 0;
+}
+.music-page .about-logo{
+    width:min(1000px, 90vw);
+}
+
+.music-page .about-hero img:first-child{
+    filter: brightness(35%);
+}
+
+.music-page .about-overlay{
+    transform: translateY(30px);
+}
+
+.music-page .music-hero-bg{
+    position:absolute;
+    inset:0;
+    background:#000;
+}
+
+/* Booking preview */
+.booking-page{max-width:880px;}
+.booking-page .booking-intro{font-size:1.25rem;max-width:760px;line-height:1.6;}
+.booking-photo{width:100%;max-height:460px;object-fit:cover;object-position:center 55%;margin:2rem 0;}
+.booking-links{display:flex;flex-wrap:wrap;gap:.7rem;margin:1rem 0 3rem;}
+.booking-links .buy-button{margin-top:0;}
+.booking-section{padding:2rem 0;border-top:1px solid rgba(212,175,55,.28);}
+.booking-section h2{font-size:2rem;margin-bottom:1rem;}
+.booking-section blockquote{color:#d1c08d;margin:1.2rem 0;font-size:1.15rem;}
+.booking-section blockquote a{font-size:.9rem;text-decoration:underline;text-underline-offset:4px;}
+.recent-shows{border-top:1px solid rgba(212,175,55,.22);padding-top:1.5rem;text-align:center;}
+.recent-shows p{margin:.2rem 0;}
+@media(max-width:600px){.booking-photo{max-height:none;object-fit:contain;}.booking-links .buy-button{padding:.8rem 1.1rem;}}
