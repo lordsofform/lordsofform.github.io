@@ -879,3 +879,24 @@ nav{
     color:#e7bbce;
 }
 .booking-press blockquote span{color:#d4af37;}
+
+/* Evenly sized, softly blended ovals for the two homepage sections. */
+.home-actions{grid-auto-rows:1fr;}
+.home-panel,
+.home-release{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-width:0;
+    min-height:20rem;
+    padding:3rem 2.5rem;
+    border:0;
+    border-radius:50%;
+    text-align:center;
+    background:radial-gradient(ellipse at center, rgba(212,175,55,.085) 0%, rgba(212,175,55,.035) 50%, transparent 75%);
+}
+.home-panel .home-buttons{justify-content:center;}
+@media(max-width:900px){
+    .home-panel,.home-release{min-height:19rem;padding:2.5rem 1.25rem;}
+}
