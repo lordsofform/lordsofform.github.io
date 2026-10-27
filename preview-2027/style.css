@@ -857,3 +857,13 @@ nav{
     color:#ff35a5;
     text-shadow:0 0 10px rgba(255,55,169,.95),0 0 26px rgba(255,36,155,.75);
 }
+
+/* Soft, borderless homepage panels. The earlier Fallow artwork rules remain above for easy restoration. */
+.home-panel{
+    border:0;
+    background:radial-gradient(ellipse at center, rgba(212,175,55,.065) 0%, rgba(0,0,0,0) 75%);
+}
+.home-release{
+    background:radial-gradient(ellipse at center, rgba(212,175,55,.065) 0%, rgba(0,0,0,0) 75%);
+}
+.home-release:before{display:none;}
