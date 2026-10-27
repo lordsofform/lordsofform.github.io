@@ -1,6 +1,17 @@
 const flash = document.getElementById("flash");
 
 if (flash) {
+    const taglineLines = document.querySelectorAll(".home-hero .brand-line, .home-hero .tagline-detail");
+    let brandFlashTimer;
+
+    function flashBrand(duration) {
+        if (!taglineLines.length) return;
+        clearTimeout(brandFlashTimer);
+        taglineLines.forEach(line => line.classList.add("lightning-strike"));
+        brandFlashTimer = setTimeout(() => {
+            taglineLines.forEach(line => line.classList.remove("lightning-strike"));
+        }, Math.max(duration, 900));
+    }
 
     const images = [
         "images/crow.jpg",
@@ -15,6 +26,7 @@ if (flash) {
     }
 
     function whiteFlash(duration = 30) {
+        flashBrand(duration);
 
         flash.style.background = "#ffffff";
         flash.style.backgroundImage = "none";
@@ -28,6 +40,7 @@ if (flash) {
     }
 
     function artworkFlash(duration = 140) {
+        flashBrand(duration);
 
         flash.style.backgroundColor = "transparent";
         flash.style.backgroundImage = `url("${randomImage()}")`;

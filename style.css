@@ -802,3 +802,80 @@ margin:35px 0 20px;
     inset:0;
     background:#000;
 }
+
+/* Booking preview */
+.booking-page{max-width:880px;}
+.booking-page .booking-intro{font-size:1.25rem;max-width:760px;line-height:1.6;}
+.booking-photo{width:100%;max-height:460px;object-fit:cover;object-position:center 55%;margin:2rem 0;}
+.booking-links{display:flex;flex-wrap:wrap;gap:.7rem;margin:1rem 0 3rem;}
+.booking-links .buy-button{margin-top:0;}
+.booking-section{padding:2rem 0;border-top:1px solid rgba(212,175,55,.28);}
+.booking-section h2{font-size:2rem;margin-bottom:1rem;}
+.booking-section blockquote{color:#d1c08d;margin:1.2rem 0;font-size:1.15rem;}
+.booking-section blockquote a{font-size:.9rem;text-decoration:underline;text-underline-offset:4px;}
+.recent-shows{border-top:1px solid rgba(212,175,55,.22);padding-top:1.5rem;text-align:center;}
+.recent-shows p{margin:.2rem 0;}
+@media(max-width:600px){.booking-photo{max-height:none;object-fit:contain;}.booking-links .buy-button{padding:.8rem 1.1rem;}}
+
+/* Keep navigation available while browsing longer pages. */
+body{overflow-x:clip;}
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    align-self:stretch;
+    padding:.65rem 1.25rem;
+    background:rgba(0,0,0,.94);
+    border-bottom:1px solid rgba(212,175,55,.25);
+}
+@media(max-width:900px){
+    nav{gap:.35rem 1rem;padding:.55rem .65rem;}
+    nav a{font-size:1rem;letter-spacing:1px;}
+}
+@media(max-width:420px){
+    nav{gap:.25rem .7rem;}
+    nav a{font-size:.9rem;letter-spacing:.6px;}
+}
+
+/* The band tagline brightens in step with the homepage lightning. */
+.home-hero .brand-line{
+    font-size:clamp(1.45rem,4.5vw,1.65rem);
+    color:#f0d37a;
+    text-shadow:none;
+    transition:color .35s ease-out, text-shadow .6s ease-out;
+}
+.home-hero .tagline-detail{
+    font-size:1rem;
+    text-shadow:none;
+    transition:color .35s ease-out, text-shadow .6s ease-out;
+}
+.home-hero .tagline-detail.lightning-strike{
+    color:#c783ed;
+    text-shadow:0 0 10px rgba(186,84,238,.85),0 0 22px rgba(148,48,205,.6);
+}
+.home-hero .brand-line.lightning-strike{
+    color:#ff35a5;
+    text-shadow:0 0 10px rgba(255,55,169,.95),0 0 26px rgba(255,36,155,.75);
+}
+
+/* Soft, borderless homepage panels. The earlier Fallow artwork rules remain above for easy restoration. */
+.home-panel{
+    border:0;
+    background:radial-gradient(ellipse at center, rgba(212,175,55,.065) 0%, rgba(0,0,0,0) 75%);
+}
+.home-release{
+    background:radial-gradient(ellipse at center, rgba(212,175,55,.065) 0%, rgba(0,0,0,0) 75%);
+}
+.home-release:before{display:none;}
+
+/* Large, centred press quotes for the booking page. */
+.booking-press h2{text-align:center;}
+.booking-press blockquote{
+    max-width:800px;
+    margin:2rem auto;
+    text-align:center;
+    font-size:1.35rem;
+    line-height:1.8;
+    color:#e7bbce;
+}
+.booking-press blockquote span{color:#d4af37;}
