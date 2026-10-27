@@ -836,3 +836,14 @@ nav{
     nav{gap:.25rem .7rem;}
     nav a{font-size:.9rem;letter-spacing:.6px;}
 }
+
+/* The band tagline brightens in step with the homepage lightning. */
+.home-hero .brand-line{
+    font-size:clamp(1.45rem,4.5vw,1.65rem);
+    color:#f0d37a;
+}
+.home-hero .tagline-detail{font-size:1rem;}
+.home-hero .brand-line.lightning-strike{
+    color:#fff8d6;
+    text-shadow:0 0 12px rgba(255,237,165,.9),0 0 28px rgba(212,175,55,.65);
+}
